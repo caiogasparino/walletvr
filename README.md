@@ -1,79 +1,73 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Wallet VR
 
-# Getting Started
+Wallet VR é um aplicativo móvel desenvolvido em React Native que permite cadastrar e gerenciar seus cartões de forma intuitiva e interativa. Com Wallet VR, você pode adicionar, visualizar e selecionar seus cartões de maneira conveniente, tudo em um ambiente de realidade virtual imersiva.
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+## Recursos Principais
 
-## Step 1: Start the Metro Server
+- **Cadastro de Cartões**: Adicione seus cartões de crédito, débito, fidelidade e outros tipos diretamente no aplicativo.
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+- **Seleção Rápida**: Selecione o cartão desejado de forma rápida e fácil, usando controles intuitivos e gestos.
 
-To start Metro, run the following command from the _root_ of your React Native project:
+- **Navegação Simples**: Navegue pela sua coleção de cartões de forma intuitiva e interativa, como se estivesse em um mundo virtual.
 
-```bash
-# using npm
-npm start
+- **Segurança Avançada**: Proteja seus dados sensíveis com recursos de segurança avançados.
 
-# OR using Yarn
-yarn start
-```
+## Requisitos de Desenvolvimento
 
-## Step 2: Start your Application
+Para iniciar o projeto Wallet VR em seu ambiente de desenvolvimento, você precisa ter o seguinte software instalado:
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+- [Node.js](https://nodejs.org/) (versão 14 ou superior)
+- [npm](https://www.npmjs.com/) (gerenciador de pacotes JavaScript)
+- [React Native CLI](https://reactnative.dev/docs/environment-setup)
 
-### For Android
+Certifique-se de seguir as instruções de configuração do ambiente de desenvolvimento fornecidas na documentação oficial do React Native.
 
-```bash
-# using npm
-npm run android
+## Como Iniciar o Projeto
 
-# OR using Yarn
-yarn android
-```
+Siga os passos abaixo para iniciar o projeto Wallet VR em seu ambiente de desenvolvimento:
 
-### For iOS
+1. Clone o repositório do projeto:
 
-```bash
-# using npm
-npm run ios
+   ```bash
+   git clone https://github.com/seu-usuario/wallet-vr.git
+   ```
 
-# OR using Yarn
-yarn ios
-```
+2. Navegue até o diretório do projeto:
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+   ```bash
+   cd wallet-vr
+   ```
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+3. Instale as dependências do projeto:
 
-## Step 3: Modifying your App
+   ```bash
+   npm install
+   ```
 
-Now that you have successfully run the app, let's modify it.
+4. Execute o aplicativo no emulador ou dispositivo:
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
+   Para iOS:
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
+   ```bash
+   npx react-native run-ios
+   ```
 
-## Congratulations! :tada:
+   Para Android:
 
-You've successfully run and modified your React Native App. :partying_face:
+   ```bash
+   npx react-native run-android
+   ```
 
-### Now what?
+Agora você deve ter o Wallet VR rodando no seu emulador ou dispositivo de teste.
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
+## Contribuição
 
-# Troubleshooting
+Se você deseja contribuir para o desenvolvimento do Wallet VR, fique à vontade para criar issues, enviar pull requests ou entrar em contato conosco. Estamos ansiosos para ver suas contribuições e melhorar ainda mais este projeto!
 
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+## Licença
 
-# Learn More
+Este projeto é licenciado sob os termos da Licença MIT. Consulte o arquivo [LICENSE](LICENSE) para obter mais detalhes.
 
-To learn more about React Native, take a look at the following resources:
+---
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+Aproveite o Wallet VR e gerencie seus cartões de forma inovadora em um ambiente de realidade virtual! Se tiver alguma dúvida ou precisar de assistência, não hesite em nos contatar.
