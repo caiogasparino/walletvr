@@ -37,9 +37,6 @@ export const Transition: StackNavigationOptions = {
                 })
               : 0,
           },
-          // {
-          //   scale: next ? next.progress.interpolate({ inputRange: [0, 1], outputRange: [1, 0] }) : 1
-          // }
         ],
       },
       overlayStyle: {

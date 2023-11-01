@@ -1,6 +1,6 @@
-export interface ButtonProps {
-  label: string;
-  onPress: () => void;
+export interface IButtonProps {
+  label?: string;
+  onPress?: () => void;
   color?: string;
   backgroundColor?: string;
   colorLabel?: string;
@@ -10,7 +10,7 @@ export interface ButtonProps {
   padding?: number;
   align?: 'left' | 'center' | 'right';
   fontFamily?: 'PTSansCaption-Bold' | 'PTSansCaption-Regular';
-  size?: number;
+  fontSize?: number;
   labelWeight?: 'normal' | 'bold' | '400' | '500' | '600' | '700' | '800';
   children?: React.ReactNode;
   decoration?: 'none' | 'underline' | 'line-through';

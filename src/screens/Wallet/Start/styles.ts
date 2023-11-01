@@ -7,10 +7,3 @@ export const Container = styled.View`
   justify-content: center;
   align-items: center;
 `;
-
-export const BackgroundImage = styled.Image`
-  flex: 1;
-  resizemode: contain;
-  width: 100%;
-  height: 100%;
-`;

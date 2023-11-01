@@ -8,6 +8,7 @@ module.exports = {
         root: ['./src'], // Set the root directory to your source folder
         alias: {
           '@animations': 'animations',
+          '@assets': 'assets',
           '@components': 'components',
           '@navigation': 'navigation',
           '@UIKit': './src/components/UIKit',

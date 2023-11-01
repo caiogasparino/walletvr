@@ -1,16 +1,16 @@
 // Button.tsx
 
 import React from 'react';
-import {ButtonProps} from './IButtons';
+import {IButtonProps} from './IButtons';
 import {ButtonContainer, ButtonText} from './styles';
 import {Typography} from '@UIKit';
 
-export const Button: React.FC<ButtonProps> = ({
+export const Button: React.FC<IButtonProps> = ({
   label,
   onPress,
   color,
   backgroundColor,
-  size,
+  fontSize,
   lineHeight = 22,
   colorLabel,
   labelWeight,
@@ -22,16 +22,16 @@ export const Button: React.FC<ButtonProps> = ({
   return (
     <ButtonContainer
       backgroundColor={backgroundColor}
+      borderRadius={borderRadius}
       style={{
         width: width,
         height: height,
-        borderRadius: borderRadius,
         padding: padding,
       }}
       onPress={onPress}>
       <ButtonText color={color}>
         <Typography
-          size={size}
+          size={fontSize}
           lineHeight={lineHeight}
           weight={labelWeight}
           color={colorLabel}>

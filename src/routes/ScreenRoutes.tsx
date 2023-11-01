@@ -1,34 +1,26 @@
 import React from 'react';
 import {DefaultTheme, NavigationContainer} from '@react-navigation/native';
-
+import {createStackNavigator} from '@react-navigation/stack';
 import {SplashScreen} from '../components/SplashScreen';
 import {Transition} from './Transiction';
-import {createStackNavigator} from '@react-navigation/stack';
-
 import {Wallet} from '../screens';
 
 interface IScreenRoutes {
   initialRouteName?: string;
 }
 
-export const ScreenRoutes: React.FC<IScreenRoutes> = props => {
-  const {initialRouteName} = props;
-
+export const ScreenRoutes: React.FC<IScreenRoutes> = ({initialRouteName}) => {
   const Stack = createStackNavigator();
 
   const options = {
     headerShown: false,
-
     ...Transition,
   };
 
   const Theme = {
     ...DefaultTheme,
-
     colors: {
       ...DefaultTheme.colors,
-
-      background: 'transparent',
     },
   };
 
