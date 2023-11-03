@@ -1,6 +1,6 @@
 import React from 'react';
 import LottieView from 'lottie-react-native';
-import {Normalize} from '../Utils';
+import {Normalize} from '@UIKit';
 import {ILottie} from './ILottie';
 
 const CustomComponent: React.FC<ILottie> = props => {

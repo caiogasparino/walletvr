@@ -4,7 +4,6 @@ import styled from 'styled-components/native';
 import {ITypography} from './ITypography';
 
 export const TextCustom = styled.Text<ITypography>`
-  font-family: 'PTSansCaption-Regular';
   text-align: ${({align}) => align || 'left'};
   font-size: ${({size}) => `${size || 16}px`};
   color: ${({color}) => color || 'black'};

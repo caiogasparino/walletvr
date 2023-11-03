@@ -2,6 +2,7 @@ import React from 'react';
 import {Container} from './styles';
 import {Button, Colors, Divider, Typography, WrapperImage} from '@UIKit';
 import {useNavigation} from '@react-navigation/native';
+import {Images} from '@assets/images';
 
 interface IStart {}
 
@@ -10,10 +11,11 @@ const labelCard = 'meus cartões';
 const labelRegisterCard = 'cadastrar cartão';
 
 export const Start: React.FC<IStart> = () => {
-  const navigation: {navigate: (arg0: string) => void} = useNavigation();
+  const navigation: {navigate: Function} = useNavigation();
+
   return (
     <Container>
-      <WrapperImage source={require('../../../assets/images/bganimate.png')}>
+      <WrapperImage source={Images.background.imageBackground}>
         <Typography
           size={28}
           lineHeight={32}

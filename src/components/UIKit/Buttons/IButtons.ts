@@ -7,7 +7,6 @@ export interface IButtonProps {
   width?: number;
   height?: number;
   borderRadius?: number;
-  padding?: number;
   align?: 'left' | 'center' | 'right';
   fontFamily?: 'PTSansCaption-Bold' | 'PTSansCaption-Regular';
   fontSize?: number;
@@ -16,4 +15,6 @@ export interface IButtonProps {
   decoration?: 'none' | 'underline' | 'line-through';
   lineHeight?: number;
   opacity?: number;
+  paddingVertical?: number;
+  paddingHorizontal?: number;
 }

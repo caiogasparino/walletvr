@@ -17,16 +17,18 @@ export const Button: React.FC<IButtonProps> = ({
   width,
   height,
   borderRadius,
-  padding,
+  paddingVertical,
+  paddingHorizontal,
 }) => {
   return (
     <ButtonContainer
       backgroundColor={backgroundColor}
       borderRadius={borderRadius}
+      paddingVertical={paddingVertical}
+      paddingHorizontal={paddingHorizontal}
       style={{
         width: width,
         height: height,
-        padding: padding,
       }}
       onPress={onPress}>
       <ButtonText color={color}>

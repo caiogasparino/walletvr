@@ -6,3 +6,6 @@ export {Capitalize, Normalize, ScreenHeight, ScreenWidth} from './Utils';
 export {Wrapper} from './Wrapper';
 export {Button} from './Buttons';
 export {WrapperImage} from './WrapperImage';
+export {Header} from './Header';
+export {CreditCardInput} from './CreditCardInput';
+export {Input} from './Input';

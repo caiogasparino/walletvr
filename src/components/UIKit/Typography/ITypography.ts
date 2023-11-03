@@ -1,5 +1,3 @@
-// ITypography.ts
-
 export interface ITypography {
   align?: 'left' | 'center' | 'right';
   color?: string;

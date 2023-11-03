@@ -1,7 +1,6 @@
 import styled from 'styled-components/native';
 import LinearGradient from 'react-native-linear-gradient';
-import {Colors} from '../Colors';
-import {Normalize} from '../Utils';
+import {Normalize, Colors} from '../';
 import {IWrapper} from './IWrapper';
 
 export const Gradient: any = styled(LinearGradient).attrs({

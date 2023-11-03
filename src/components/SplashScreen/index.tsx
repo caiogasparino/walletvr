@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
-import {Lottie} from '../UIKit/Lottie';
-import {Wallet} from '../../animations';
+import {Lottie} from '@UIKit';
+import {Wallet} from '@animations';
 import {Centralized} from './styles';
 import {useNavigation} from '@react-navigation/native';
 

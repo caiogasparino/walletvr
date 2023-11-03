@@ -7,7 +7,7 @@
     "baseUrl": "./src", // Updated baseUrl to "./src"
     "esModuleInterop": true,
     "paths": {
-      "@animations/*": ["animations/*"],
+      "@animations": ["animations"],
       "@assets/*": ["assets/*"],
       "@components/*": ["components/*"],
       "@navigation/*": ["navigation/*"],
@@ -16,5 +16,5 @@
       "@screens/*": ["screens/*"]
     }
   },
-  "include": ["src"] // Updated include to ["src"]
+  "include": ["src"]
 }

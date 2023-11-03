@@ -5,7 +5,9 @@ import {IButtonProps} from './IButtons';
 export const ButtonContainer = styled(TouchableOpacity)<IButtonProps>`
   background-color: ${props => props.backgroundColor || '#007AFF'};
   justify-content: center;
-  border-radius: ${props => props.borderRadius || '5px'};
+  border-radius: ${props => props.borderRadius || 5}px;
+  padding-vertical: ${props => props.paddingVertical || 10}px;
+  padding-horizontal: ${props => props.paddingHorizontal || 20}px;
 `;
 
 export const ButtonText = styled(Text)<{color?: string}>`

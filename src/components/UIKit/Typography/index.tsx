@@ -19,12 +19,12 @@ export const Typography: React.FC<TypographyProps> = ({
   ...rest
 }) => {
   const textStyle: TextStyle = {
-    fontFamily,
+    fontFamily: fontFamily,
     fontSize: size,
-    lineHeight,
+    lineHeight: lineHeight,
     fontWeight: weight,
-    color,
-    ...(style as TextStyle), // Ensure any custom styles are preserved
+    color: color,
+    ...(style as TextStyle),
   };
 
   return <Text style={textStyle} {...rest} />;

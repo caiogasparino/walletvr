@@ -1,9 +1,10 @@
 import React from 'react';
 import {DefaultTheme, NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-import {SplashScreen} from '../components/SplashScreen';
+
 import {Transition} from './Transiction';
 import {Wallet} from '../screens';
+import {SplashScreen} from '../components/SplashScreen';
 
 interface IScreenRoutes {
   initialRouteName?: string;
