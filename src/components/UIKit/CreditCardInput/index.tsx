@@ -5,8 +5,13 @@ import {Divider, Typography, Colors} from '@UIKit';
 
 const Cam = Images.icons.cam;
 const LabelCard = 'número do cartão';
+interface ICreditCardInputProps {
+  onChangeText: (value: string) => void;
+}
 
-export const CreditCardInput = () => {
+export const CreditCardInput: React.FC<ICreditCardInputProps> = ({
+  onChangeText,
+}) => {
   const [creditCardNumber, setCreditCardNumber] = useState('');
 
   const handleCreditCardChange = (value: string) => {
@@ -14,6 +19,7 @@ export const CreditCardInput = () => {
     const maskedValue = cleanValue.replace(/(\d{4})/g, '$1 ').trim();
 
     setCreditCardNumber(maskedValue);
+    onChangeText(maskedValue);
   };
 
   return (
@@ -26,7 +32,7 @@ export const CreditCardInput = () => {
       <Divider paddingBottom={5} />
       <Container>
         <CamContain>
-          <Cam width={24} height={24} />
+          <Cam width={28} height={28} />
         </CamContain>
         <InputCard
           maxLength={19}

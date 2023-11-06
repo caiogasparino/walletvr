@@ -13,4 +13,5 @@ export const Colors: ColorScheme = {
   primaryText: '#3F3F3F',
   cardBg: '#A5FF32',
   btnPrimary: '#12C2E9',
+  shadowColor: 'rgba(20, 41, 149, 1)',
 };

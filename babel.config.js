@@ -5,13 +5,14 @@ module.exports = {
     [
       'module-resolver',
       {
-        root: ['./src'], // Set the root directory to your source folder
+        root: ['./src'],
         alias: {
           '@animations': './src/animations',
           '@assets': './src/assets',
           '@components': 'components',
           '@navigation': 'navigation',
           '@UIKit': './src/components/UIKit',
+          '@Utils': './src/components/UIKit/Utils',
           '@routes': 'routes',
           '@screens': 'screens',
         },

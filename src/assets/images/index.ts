@@ -2,6 +2,7 @@
 import ImageBackground from './background/bg-wrapper.png';
 import ArrowLeft from './icon/icon-arrowleft.svg';
 import Cam from './icon/icon-cam.svg';
+import Add from './icon/icon-add.svg';
 
 export const Images = {
   background: {
@@ -10,5 +11,6 @@ export const Images = {
   icons: {
     arrowLeft: ArrowLeft,
     cam: Cam,
+    add: Add,
   },
 };

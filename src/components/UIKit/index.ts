@@ -1,5 +1,5 @@
 export {Colors} from './Colors';
-export {Divider} from './Divider';
+export {Divider, DividerShadow} from './Divider';
 export {Typography} from './Typography';
 export {Lottie} from './Lottie';
 export {Capitalize, Normalize, ScreenHeight, ScreenWidth} from './Utils';
@@ -7,5 +7,7 @@ export {Wrapper} from './Wrapper';
 export {Button} from './Buttons';
 export {WrapperImage} from './WrapperImage';
 export {Header} from './Header';
+export {HeaderCards} from './HeaderCards';
 export {CreditCardInput} from './CreditCardInput';
 export {Input} from './Input';
+export {Card} from './Cards';

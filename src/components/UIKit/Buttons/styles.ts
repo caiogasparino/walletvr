@@ -8,6 +8,8 @@ export const ButtonContainer = styled(TouchableOpacity)<IButtonProps>`
   border-radius: ${props => props.borderRadius || 5}px;
   padding-vertical: ${props => props.paddingVertical || 10}px;
   padding-horizontal: ${props => props.paddingHorizontal || 20}px;
+  margin-top: ${props => props.marginTop || 0}px;
+  margin-bottom: ${props => props.marginBottom || 0}px;
 `;
 
 export const ButtonText = styled(Text)<{color?: string}>`

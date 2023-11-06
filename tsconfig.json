@@ -4,7 +4,7 @@
     "allowJs": true,
     "checkJs": true,
     "jsx": "react-native",
-    "baseUrl": "./src", // Updated baseUrl to "./src"
+    "baseUrl": "./src",
     "esModuleInterop": true,
     "paths": {
       "@animations": ["animations"],
@@ -12,6 +12,7 @@
       "@components/*": ["components/*"],
       "@navigation/*": ["navigation/*"],
       "@UIKit": ["components/UIKit"],
+      "@Utils": ["components/UIKit/Utils"],
       "@routes/*": ["routes/*"],
       "@screens/*": ["screens/*"]
     }

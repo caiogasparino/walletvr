@@ -1,8 +1,11 @@
-import React from 'react';
+import React, {useContext, useEffect} from 'react';
 import {Container} from './styles';
 import {Button, Colors, Divider, Typography, WrapperImage} from '@UIKit';
 import {useNavigation} from '@react-navigation/native';
 import {Images} from '@assets/images';
+import {Alert} from 'react-native';
+import CardService from 'services/cardService';
+import {WalletContext} from 'context';
 
 interface IStart {}
 
@@ -12,6 +15,20 @@ const labelRegisterCard = 'cadastrar cartão';
 
 export const Start: React.FC<IStart> = () => {
   const navigation: {navigate: Function} = useNavigation();
+  const createCardContext = useContext(WalletContext);
+
+  useEffect(() => {
+    const init = async () => {
+      const cardService = new CardService();
+      try {
+        const response = await cardService.getCards();
+        createCardContext.addCardResponse = response;
+      } catch (error: any) {
+        Alert.alert('Error registering the card', error.message);
+      }
+    };
+    init();
+  }, [createCardContext]);
 
   return (
     <Container>

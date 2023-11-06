@@ -6,8 +6,6 @@ import {Wrapper} from './src/components/UIKit/Wrapper';
 
 function App() {
   useEffect(() => {
-    // Simulate an authentication check
-    // You should replace this with your actual authentication logic
     setTimeout(() => {
       SplashScreen.hide();
     }, 2000);

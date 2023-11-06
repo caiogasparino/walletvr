@@ -15,7 +15,7 @@ export const Header: React.FC<HeaderProps> = ({label}) => {
   return (
     <Container>
       <ButtonArrow onPress={() => navigation.goBack()}>
-        <Arrow width={24} height={24} color={Colors.primaryWhite} />
+        <Arrow width={20} height={20} color={Colors.primaryWhite} />
       </ButtonArrow>
       <Typography
         size={22}

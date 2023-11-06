@@ -11,4 +11,5 @@ export interface IInputProps {
   style?: StyleProp<TextStyle>;
   styleContainer?: StyleProp<TextStyle>;
   inputType?: 'default' | 'datecard' | 'codecard';
+  onChangeText?: (value: string) => void;
 }

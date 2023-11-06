@@ -16,9 +16,12 @@ export const Button: React.FC<IButtonProps> = ({
   labelWeight,
   width,
   height,
-  borderRadius,
+  borderRadius = 12,
   paddingVertical,
   paddingHorizontal,
+  marginTop,
+  marginBottom,
+  disabled,
 }) => {
   return (
     <ButtonContainer
@@ -26,6 +29,9 @@ export const Button: React.FC<IButtonProps> = ({
       borderRadius={borderRadius}
       paddingVertical={paddingVertical}
       paddingHorizontal={paddingHorizontal}
+      marginTop={marginTop}
+      marginBottom={marginBottom}
+      disabled={disabled}
       style={{
         width: width,
         height: height,

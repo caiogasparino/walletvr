@@ -2,6 +2,7 @@ export interface IButtonProps {
   label?: string;
   onPress?: () => void;
   color?: string;
+  disabled?: boolean;
   backgroundColor?: string;
   colorLabel?: string;
   width?: number;
@@ -17,4 +18,6 @@ export interface IButtonProps {
   opacity?: number;
   paddingVertical?: number;
   paddingHorizontal?: number;
+  marginTop?: number;
+  marginBottom?: number;
 }

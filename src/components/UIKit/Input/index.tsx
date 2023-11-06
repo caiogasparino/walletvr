@@ -6,6 +6,7 @@ import {IInputProps} from './IInput';
 export const Input: React.FC<IInputProps> = ({
   label,
   keyboardType,
+  onChangeText = () => {},
   inputType,
   placeholder,
   secureTextEntry,
@@ -22,15 +23,18 @@ export const Input: React.FC<IInputProps> = ({
     switch (inputType) {
       case 'default':
         setInputText(value);
+        onChangeText(value);
         break;
       case 'datecard':
         const numericValue = value.replace(/\D/g, '');
         const sanitizedValue = numericValue.slice(0, 4);
         const maskedDate = sanitizedValue.replace(/(\d{2})(\d{0,2})/, '$1/$2');
         setInputText(maskedDate);
+        onChangeText(maskedDate);
         break;
       case 'codecard':
         setInputText(value);
+        onChangeText(value);
         break;
       default:
         break;

@@ -11,4 +11,5 @@ export type ColorScheme = {
   primaryText: string;
   cardBg: string;
   btnPrimary: string;
+  shadowColor: string;
 };
