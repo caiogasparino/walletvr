@@ -1,98 +1,126 @@
-import React, {useContext, useState} from 'react';
-import {CardContain, Contain, Container} from './styles';
+import React, {useContext, useState, useRef} from 'react';
+import {
+  ButtonContain,
+  CardContain,
+  Contain,
+  Container,
+  position,
+} from './styles';
 import {Button, Card, Colors, HeaderCards, Typography} from '@UIKit';
 import {WalletContext} from 'context';
-import {Animated, Dimensions} from 'react-native';
-import {Easing} from 'react-native-reanimated';
+import {Animated, Easing} from 'react-native';
 
-interface IWalletMyCards {}
+interface IWalletMyCards {
+  handleCardClick?: Function;
+}
 
 const title = 'Meus Cartões';
 const labelSelectCard = 'usar este cartão';
 const labelRegister = 'Wallet Test';
 const labelPaymentButton = 'pagar com este cartão';
-const height = Dimensions.get('screen').height;
-const cardHeight = -height / 2 + 135;
+const topCards = -150;
+const topCardsSelect = 490;
 
 export const MyCards: React.FC<IWalletMyCards> = () => {
   const createCardContext = useContext(WalletContext);
   const {addCardResponse} = createCardContext;
 
-  const [selectedCard, setSelectedCard] = useState<number | null>(0);
-  const translateY = new Animated.Value(0);
-  const scaleValue = new Animated.Value(1);
+  const [selectedCard, setSelectedCard] = useState<number | null>(null);
+  const opacity = useRef(new Animated.Value(1)).current;
+  const [scale] = useState(new Animated.Value(1));
 
   const handleCardClick = (index: number) => {
-    const updatedCards = [...addCardResponse];
-    updatedCards.unshift(updatedCards.splice(index, 1)[0]);
-    createCardContext.addCardResponse = updatedCards;
+    if (selectedCard !== null) {
+      handleCleanCard();
+    } else {
+      setSelectedCard(index);
+    }
 
-    setSelectedCard(index);
-
-    Animated.timing(scaleValue, {
-      toValue: 0.9,
-      duration: 200,
-      easing: Easing.out(Easing.ease),
-      useNativeDriver: true,
-    }).start(() => {
-      Animated.spring(scaleValue, {
-        toValue: 1,
+    Animated.parallel([
+      Animated.timing(opacity, {
+        toValue: selectedCard !== null ? 1 : 0.5,
+        duration: 300,
+        easing: Easing.ease,
+        useNativeDriver: false,
+      }),
+      Animated.spring(scale, {
+        toValue: selectedCard !== null ? 1.1 : 1,
         stiffness: 100,
-        damping: 10,
-        useNativeDriver: true,
-      }).start();
-    });
+        damping: 4,
+        useNativeDriver: false,
+      }),
+    ]).start();
+  };
+
+  const handleCleanCard = () => {
+    setSelectedCard(null);
   };
 
   return (
     <React.Fragment>
       <HeaderCards label={labelRegister} title={title} />
       <Container>
-        <Contain style={{transform: [{translateY: selectedCard ? 340 : 180}]}}>
+        <Contain>
+          {selectedCard !== null && (
+            <CardContain
+              style={{
+                transform: [{translateY: selectedCard !== null ? 80 : 0}],
+              }}>
+              <Card
+                cardName={addCardResponse?.[selectedCard]?.type}
+                name={addCardResponse?.[selectedCard]?.name}
+                cardNumber={addCardResponse?.[selectedCard]?.number}
+                cardDate={addCardResponse?.[selectedCard]?.dateCard}
+                cardType={addCardResponse?.[selectedCard]?.type}
+              />
+              <ButtonContain>
+                <Button
+                  label={labelPaymentButton}
+                  labelWeight="400"
+                  width={300}
+                  height={55}
+                  fontSize={18}
+                  colorLabel={Colors.primaryWhite}
+                  backgroundColor={Colors.btnPrimary}
+                  onPress={() => {}}
+                />
+              </ButtonContain>
+            </CardContain>
+          )}
           {addCardResponse?.map((card, index) => (
             <Animated.View
               key={index}
-              style={{
-                transform: [
-                  {
-                    translateY:
-                      index === selectedCard ? translateY : cardHeight,
-                  },
-                ],
-                zIndex: addCardResponse.length - index,
-              }}>
-              <CardContain key={index} onPress={() => handleCardClick(index)}>
+              style={[
+                position.animate,
+                {
+                  transform: [
+                    {
+                      translateY:
+                        selectedCard === null ? topCards : topCardsSelect,
+                    },
+                    {scale: scale},
+                  ],
+                  top: index * 60,
+                  opacity: opacity,
+                },
+              ]}>
+              <CardContain onPress={() => handleCardClick(index)}>
                 <Card
+                  testId={`card-${index}`}
                   cardName={card.type}
                   name={card.name}
                   cardNumber={card.number}
                   cardDate={card.dateCard}
                   cardType={card.type}
                 />
-                {selectedCard !== 0 && index === 0 && (
-                  <Button
-                    marginTop={130}
-                    marginBottom={-180}
-                    label={labelPaymentButton}
-                    labelWeight="400"
-                    width={300}
-                    height={55}
-                    fontSize={18}
-                    colorLabel={Colors.primaryWhite}
-                    backgroundColor={Colors.btnPrimary}
-                    onPress={() => {}}
-                  />
-                )}
-                {selectedCard === 0 && index === 0 && (
-                  <Typography
-                    fontFamily="PTSansCaption-Regular"
-                    size={16}
-                    lineHeight={18}
-                    weight="400"
-                    color={Colors.primaryWhite}>
-                    {labelSelectCard}
-                  </Typography>
-                )}
+                <Typography
+                  fontFamily="PTSansCaption-Regular"
+                  size={16}
+                  lineHeight={18}
+                  weight="400"
+                  color={Colors.primaryWhite}>
+                  {labelSelectCard}
+                </Typography>
               </CardContain>
             </Animated.View>
           ))}

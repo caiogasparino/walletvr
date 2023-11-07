@@ -5,4 +5,5 @@ export interface ICardProps {
   cardDate?: string;
   cardType: string;
   opacity?: number;
+  testId?: string;
 }

@@ -41,7 +41,7 @@ const labelRegisterCard = 'avançar';
 export const Register: React.FC<IWalletRegister> = () => {
   const navigation: {
     goBack(): void;
-    navigate: (arg0: string) => void;
+    navigate: (arg0: string, arg1: {screen: string}) => void;
   } = useNavigation();
   const [creditCardInput, setCreditCardInput] = useState('');
   const [cardholderName, setCardholderName] = useState('');
@@ -60,14 +60,17 @@ export const Register: React.FC<IWalletRegister> = () => {
       isSecurityCodeValid(cvvCode)
     ) {
       try {
-        await cardService.addCard({
+        const response = await cardService.addCard({
           number: creditCardInput,
           name: cardholderName,
           dateCard: expiryDate,
           cvv: cvvCode,
           type: typeCard,
         });
-        viewCard ? navigation.navigate('WalletCards') : handleRegisterCards();
+        if (response) {
+          handleRegisterCards();
+        }
+        return;
       } catch (error: any) {
         Alert.alert('Error registering the card', error.message);
       }
@@ -78,6 +81,10 @@ export const Register: React.FC<IWalletRegister> = () => {
 
   const handleRegisterCards = async () => {
     setViewCard(true);
+  };
+
+  const handleMyCards = () => {
+    navigation.navigate('Preload', {screen: 'WalletCards'});
   };
 
   useEffect(() => {
@@ -252,7 +259,7 @@ export const Register: React.FC<IWalletRegister> = () => {
             backgroundColor={
               isValidation ? Colors.btnPrimary : Colors.primaryWhite
             }
-            onPress={handleSubmit}
+            onPress={handleMyCards}
           />
         </Animated.View>
       </WrapperImage>

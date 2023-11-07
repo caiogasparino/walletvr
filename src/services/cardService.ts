@@ -1,32 +1,37 @@
+import axios from 'axios';
+
 class CardService {
   private baseUrl: string;
 
-  constructor(baseUrl: string = 'http://localhost:3000') {
+  constructor(baseUrl: string = 'http://192.168.1.4:3000') {
     this.baseUrl = baseUrl;
   }
 
   private async sendRequest(
-    method?: string,
-    route?: string,
+    method: string,
+    route: string,
     data?: any,
   ): Promise<any> {
     const url = `${this.baseUrl}${route}`;
-    const options: RequestInit = {
-      method,
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: data ? JSON.stringify(data) : undefined,
+    const headers = {
+      'Content-Type': 'application/json',
     };
 
     try {
-      const response = await fetch(url, options);
-      if (!response.ok) {
+      const response = await axios.request({
+        method,
+        url,
+        headers,
+        data,
+      });
+
+      if (response.status !== 200 && response.status !== 201) {
         throw new Error(
           `HTTP error: ${response.status} - ${response.statusText}`,
         );
       }
-      return response.json();
+
+      return response.data;
     } catch (error: any) {
       throw new Error(`Request failed: ${error.message}`);
     }
@@ -35,6 +40,7 @@ class CardService {
   async getCards(): Promise<any> {
     return this.sendRequest('GET', '/cards/');
   }
+
   async getCardId(cardId: string): Promise<any> {
     return this.sendRequest('GET', `/cards/${cardId}`);
   }

@@ -24,7 +24,7 @@ export const Start: React.FC<IStart> = () => {
         const response = await cardService.getCards();
         createCardContext.addCardResponse = response;
       } catch (error: any) {
-        Alert.alert('Error registering the card', error.message);
+        Alert.alert('Error getting cards', error.message);
       }
     };
     init();

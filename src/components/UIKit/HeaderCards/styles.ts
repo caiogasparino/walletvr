@@ -1,5 +1,6 @@
 import styled from 'styled-components/native';
 import {Colors} from '@UIKit';
+import {Platform} from 'react-native';
 
 const commonHeaderStyles = `
   background-color: ${Colors.primaryWhite};
@@ -9,11 +10,11 @@ const commonHeaderStyles = `
 
 export const Container = styled.View`
   ${commonHeaderStyles}
-  height: 110px;
+  height: ${Platform.OS === 'ios' ? '110px' : '90px'};
   position: absolute;
   top: 0;
   padding-horizontal: 8%;
-  padding-top: 10%;
+  padding-top: ${Platform.OS === 'ios' ? '10%' : '0'};
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
@@ -22,7 +23,7 @@ export const Container = styled.View`
 export const ContainerHeaderTitle = styled.View`
   ${commonHeaderStyles}
   height: 70px;
-  top: 110px;
+  top: ${Platform.OS === 'ios' ? '110px' : '80px'};
   position: absolute;
   justify-content: center;
   align-items: center;
@@ -32,7 +33,7 @@ export const ContainerHeaderTitle = styled.View`
   shadow-opacity: 0.8;
   shadow-radius: 10px;
   shadow-offset: 0px 4px;
-  elevation: 5;
+  elevation: 4;
 `;
 
 export const ButtonArrow = styled.TouchableOpacity``;

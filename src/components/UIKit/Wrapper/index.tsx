@@ -1,7 +1,7 @@
 import React from 'react';
-import {getStatusBarHeight} from 'react-native-status-bar-height';
 import {Gradient, Transparent, White} from './styles';
 import {IWrapper} from './IWrapper';
+import {getStatusBarHeight} from 'react-native-status-bar-height';
 
 export const Wrapper: React.FC<IWrapper> = props => {
   const {children, color, paddingBottom, paddingTop} = props;

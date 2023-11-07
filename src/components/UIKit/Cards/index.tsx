@@ -3,7 +3,7 @@ import React from 'react';
 import {ICardProps} from './ICardProps';
 import {CardContainer, Contain, TextContain, TitleContain} from './styles';
 import {Colors, Divider, Typography} from '@UIKit';
-import {creditCardMask} from '../Utils';
+import {creditCardMask} from '@Utils';
 
 export const Card: React.FC<ICardProps> = ({
   cardName,

@@ -31,4 +31,4 @@ export const isSecurityCodeValid = (value: string) => {
 };
 
 export const creditCardMask = (cardNumber: string) =>
-  '••• •••• ••••' + (cardNumber ? cardNumber.slice(-4) : '');
+  '•••• •••• •••• ' + (cardNumber ? cardNumber.slice(-4) : '');

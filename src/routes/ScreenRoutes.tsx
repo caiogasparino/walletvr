@@ -10,7 +10,7 @@ interface IScreenRoutes {
   initialRouteName?: string;
 }
 
-export const ScreenRoutes: React.FC<IScreenRoutes> = ({initialRouteName}) => {
+export const ScreenRoutes: React.FC<IScreenRoutes> = () => {
   const Stack = createStackNavigator();
 
   const options = {
@@ -27,9 +27,7 @@ export const ScreenRoutes: React.FC<IScreenRoutes> = ({initialRouteName}) => {
 
   return (
     <NavigationContainer theme={Theme}>
-      <Stack.Navigator
-        screenOptions={options}
-        initialRouteName={initialRouteName || 'Preload'}>
+      <Stack.Navigator screenOptions={options} initialRouteName={'WalletStart'}>
         <Stack.Screen name="Preload" component={SplashScreen} />
         <Stack.Screen name="WalletStart" component={Wallet.Start} />
         <Stack.Screen name="WalletRegister" component={Wallet.Register} />
