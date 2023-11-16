@@ -2,6 +2,10 @@ import styled from 'styled-components/native';
 import {Colors} from '@UIKit';
 import {StyleSheet} from 'react-native';
 
+interface IStyledProps {
+  paddingTop?: number;
+}
+
 export const Container = styled.View`
   flex: 1;
   background-color: ${Colors.primary};
@@ -9,9 +13,15 @@ export const Container = styled.View`
   align-items: center;
 `;
 
-export const Scroll = styled.ScrollView`
+export const Scroll = styled.ScrollView.attrs({
+  contentContainerStyle: {
+    height: '100%',
+    marginVertical: 35,
+  },
+  showsVerticalScrollIndicator: false,
+})<IStyledProps>`
   flex: 1;
-  padding-top: 50%;
+  background-color: ${Colors.primary};
 `;
 
 export const Contain = styled.View`

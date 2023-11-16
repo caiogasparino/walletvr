@@ -2,20 +2,29 @@
   "extends": "@tsconfig/react-native/tsconfig.json",
   "compilerOptions": {
     "allowJs": true,
+    "target": "esnext",
+    "allowSyntheticDefaultImports": true,
     "checkJs": true,
     "jsx": "react-native",
-    "baseUrl": "./src",
+    "baseUrl": "./",
     "esModuleInterop": true,
     "paths": {
       "@animations": ["animations"],
-      "@assets/*": ["assets/*"],
+      "@assets/*": ["./src/assets/*"],
       "@components/*": ["components/*"],
       "@navigation/*": ["navigation/*"],
-      "@UIKit": ["components/UIKit"],
-      "@Utils": ["components/UIKit/Utils"],
+      "@UIKit": ["./src/components/UIKit"],
+      "@Utils": ["./src/components/UIKit/Utils"],
       "@routes/*": ["routes/*"],
-      "@screens/*": ["screens/*"]
+      "@screens/*": ["screens/*"],
+      "@Services": ["./src/services"]
     }
   },
-  "include": ["src"]
+  "include": ["./src"],
+  "exclude": [
+    "node_modules",
+    "babel.config.js",
+    "metro.config.js",
+    "jest.config.js"
+  ]
 }

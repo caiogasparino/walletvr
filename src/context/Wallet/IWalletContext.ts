@@ -1,7 +1,8 @@
 import {ReactNode} from 'react';
 
 export interface IWalletData {
-  id?: string;
+  id: number;
+  idCard?: string;
   number: string;
   name: string;
   dateCard: string;
@@ -11,7 +12,8 @@ export interface IWalletData {
 
 export interface IWalletContext {
   wallet: IWalletData;
-  addCardResponse: IWalletData[];
+  addCardResponse: IWalletData;
+  cards: IWalletData[];
 }
 
 export interface IChildren {

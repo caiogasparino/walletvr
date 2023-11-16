@@ -1,4 +1,10 @@
-import React, {useCallback, useEffect, useMemo, useState} from 'react';
+import React, {
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react';
 import {
   Container,
   InputContain,
@@ -27,6 +33,7 @@ import {
   isExpiryDateValid,
   isSecurityCodeValid,
 } from '@Utils';
+import {WalletContext} from 'context';
 
 interface IWalletRegister {}
 
@@ -41,8 +48,9 @@ const labelRegisterCard = 'avançar';
 export const Register: React.FC<IWalletRegister> = () => {
   const navigation: {
     goBack(): void;
-    navigate: (arg0: string, arg1: {screen: string}) => void;
+    navigate: Function;
   } = useNavigation();
+  const createCardContext = useContext(WalletContext);
   const [creditCardInput, setCreditCardInput] = useState('');
   const [cardholderName, setCardholderName] = useState('');
   const [expiryDate, setExpiryDate] = useState('');
@@ -50,7 +58,6 @@ export const Register: React.FC<IWalletRegister> = () => {
   const [isValidation, setIsValidation] = useState(false);
   const [viewCard, setViewCard] = useState(false);
   const typeCard = checkCreditCardType(creditCardInput);
-  const cardService = new CardService();
 
   const handleSubmit = async () => {
     if (
@@ -60,6 +67,7 @@ export const Register: React.FC<IWalletRegister> = () => {
       isSecurityCodeValid(cvvCode)
     ) {
       try {
+        const cardService = new CardService();
         const response = await cardService.addCard({
           number: creditCardInput,
           name: cardholderName,
@@ -83,8 +91,15 @@ export const Register: React.FC<IWalletRegister> = () => {
     setViewCard(true);
   };
 
-  const handleMyCards = () => {
-    navigation.navigate('Preload', {screen: 'WalletCards'});
+  const handleMyCards = async () => {
+    try {
+      const cardService = new CardService();
+      const response = await cardService.getCards();
+      createCardContext.cards = response;
+      navigation.navigate('Preload', {screen: 'WalletCards'});
+    } catch (error: any) {
+      Alert.alert('Error getting cards', error.message);
+    }
   };
 
   useEffect(() => {

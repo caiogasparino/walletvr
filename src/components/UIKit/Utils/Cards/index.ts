@@ -1,6 +1,6 @@
 export const checkCreditCardType = (cardNumber: string) => {
   // Regular expressions to check if the card number is a "Black" card
-  const blackCardRegex = /^(4258|4026|417500|4508|4844|4913|4917)\d{12}$/; // 12 digits after the prefix
+  const blackCardRegex = /^(4258|4026|417500|4508|4844|4913|4917)\d{12}$/;
   // Regular expression to check if the card number is a "Normal" card
   const normalCardRegex = /^(\d{16}|\d{4}-\d{4}-\d{4}-\d{4})$/;
 

@@ -1,4 +1,5 @@
 export interface IButtonProps {
+  testID?: string;
   label?: string;
   onPress?: () => void;
   color?: string;

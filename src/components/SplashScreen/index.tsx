@@ -5,34 +5,30 @@ import {Centralized} from './styles';
 import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 import {Dimensions} from 'react-native';
 
-const {height} = Dimensions.get('window');
-const {width} = Dimensions.get('window');
+const {height, width} = Dimensions.get('window');
 
 export const SplashScreen = () => {
-  const navigation: {navigate: (arg0: string) => void} = useNavigation();
-  const route: RouteProp<{params: {screen: string}}> = useRoute();
-
+  const navigation: {navigate: Function; goBack: Function} = useNavigation();
+  const route = useRoute<RouteProp<{params: {screen: string}}>>();
   const screen = route.params?.screen;
 
   useEffect(() => {
-    setTimeout(() => {
-      if (screen) {
-        navigation.navigate(screen);
-      } else {
+    const redirectToScreen = () => {
+      if (screen === 'Start') {
         navigation.navigate('WalletStart');
+      } else {
+        navigation.navigate(screen || 'WalletStart');
       }
-    }, 1000);
+    };
+
+    const timeoutId = setTimeout(redirectToScreen, 3000);
+
+    return () => clearTimeout(timeoutId);
   }, [screen, navigation]);
 
   return (
     <Centralized>
-      <Lottie
-        source={Wallet}
-        autoPlay
-        loop={true}
-        height={height}
-        width={width}
-      />
+      <Lottie source={Wallet} autoPlay loop height={height} width={width} />
     </Centralized>
   );
 };

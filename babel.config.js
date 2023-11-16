@@ -15,6 +15,7 @@ module.exports = {
           '@Utils': './src/components/UIKit/Utils',
           '@routes': 'routes',
           '@screens': 'screens',
+          '@Services': 'services',
         },
         extensions: [
           '.ios.ts',

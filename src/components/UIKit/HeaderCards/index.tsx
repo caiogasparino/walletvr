@@ -11,13 +11,14 @@ const Add = Images.icons.add;
 export const HeaderCards: React.FC<IHeaderCardsProps> = ({label, title}) => {
   const navigation: {
     goBack(): void;
-    navigate: (arg0: string) => void;
+    navigate: (arg0: string, arg1?: {screen: string}) => void;
   } = useNavigation();
 
   return (
     <React.Fragment>
       <Container>
-        <ButtonArrow onPress={() => navigation.goBack()}>
+        <ButtonArrow
+          onPress={() => navigation.navigate('Preload', {screen: 'Start'})}>
           <Arrow width={20} height={20} color={Colors.primaryWhite} />
         </ButtonArrow>
         <Typography

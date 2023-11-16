@@ -60,6 +60,19 @@ Siga os passos abaixo para iniciar o projeto Wallet VR em seu ambiente de desenv
 
 Agora você deve ter o Wallet VR rodando no seu emulador ou dispositivo de teste.
 
+## OBS
+
+Para rodar o jasonServer no android talvez precise apontar o ip da rede local no lugar de localhost e rodar yarn server --host `iplocal` --port `3000`.
+caso seja necessário apontar para ip da rede local, será nescessário apondar também em `services/cardService`.
+
+### Exemplo
+
+```bash
+opção 1: "server": "json-server --watch db.json --port 3000"
+
+opção 2: "server": "json-server --watch db.json --host 192.168.1.5 --port 3000"
+```
+
 ## Contribuição
 
 Se você deseja contribuir para o desenvolvimento do Wallet VR, fique à vontade para criar issues, enviar pull requests ou entrar em contato conosco. Estamos ansiosos para ver suas contribuições e melhorar ainda mais este projeto!

@@ -22,7 +22,7 @@ export const Start: React.FC<IStart> = () => {
       const cardService = new CardService();
       try {
         const response = await cardService.getCards();
-        createCardContext.addCardResponse = response;
+        createCardContext.cards = response;
       } catch (error: any) {
         Alert.alert('Error getting cards', error.message);
       }

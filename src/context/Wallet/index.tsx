@@ -8,7 +8,8 @@ export const WalletContext = createContext<IWalletContext>(
 export const WalletProvider: React.FC = ({}, {children}: IChildren) => {
   const [wallet] = useState({
     wallet: {} as IWalletData,
-    addCardResponse: [],
+    addCardResponse: {} as IWalletData,
+    cards: [],
   });
   return (
     <WalletContext.Provider value={wallet}>{children}</WalletContext.Provider>

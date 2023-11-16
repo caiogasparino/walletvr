@@ -1,16 +1,15 @@
-import {Images} from '@assets/images';
 import React, {useState} from 'react';
+import {Images} from '@assets/images';
 import {CamContain, Container, InputCard, TypographyContain} from './styles';
 import {Divider, Typography, Colors} from '@UIKit';
+import {ICreditCardInputProps} from './ICreditCardInputProps';
 
 const Cam = Images.icons.cam;
-const LabelCard = 'número do cartão';
-interface ICreditCardInputProps {
-  onChangeText: (value: string) => void;
-}
 
 export const CreditCardInput: React.FC<ICreditCardInputProps> = ({
-  onChangeText,
+  testID = 'credit-card-input',
+  label = 'número do cartão',
+  onChangeText = () => {},
 }) => {
   const [creditCardNumber, setCreditCardNumber] = useState('');
 
@@ -24,21 +23,22 @@ export const CreditCardInput: React.FC<ICreditCardInputProps> = ({
 
   return (
     <React.Fragment>
-      <TypographyContain>
+      <TypographyContain data-testid={`${testID}-label`}>
         <Typography size={14} lineHeight={22} color={Colors.primaryGrey}>
-          {LabelCard}
+          {label}
         </Typography>
       </TypographyContain>
       <Divider paddingBottom={5} />
-      <Container>
+      <Container data-testid={testID}>
         <CamContain>
-          <Cam width={28} height={28} />
+          <Cam width={28} height={28} data-testid={`${testID}-cam`} />
         </CamContain>
         <InputCard
           maxLength={19}
           value={creditCardNumber}
           onChangeText={handleCreditCardChange}
           keyboardType="numeric"
+          data-testid={`${testID}-input`}
         />
       </Container>
     </React.Fragment>

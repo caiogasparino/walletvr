@@ -1,11 +1,10 @@
-// Button.tsx
-
 import React from 'react';
 import {IButtonProps} from './IButtons';
 import {ButtonContainer, ButtonText} from './styles';
 import {Typography} from '@UIKit';
 
 export const Button: React.FC<IButtonProps> = ({
+  testID,
   label,
   onPress,
   color,
@@ -25,6 +24,7 @@ export const Button: React.FC<IButtonProps> = ({
 }) => {
   return (
     <ButtonContainer
+      testID={testID}
       backgroundColor={backgroundColor}
       borderRadius={borderRadius}
       paddingVertical={paddingVertical}
